@@ -5,7 +5,7 @@ const path = './public/uploads'
 const upload = multer({dest: path})
 const port = process.envPORT || 3000;
 const app = express()
-const fs = require('fs');
+const fs = require('fs'); // need this
 
 // can use next to tell express we're done with this and you can pass it to the next function.
 // middleware is just js functions between sending and receiving responses. 
