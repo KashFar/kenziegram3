@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.envPORT || 3000;
 
+//you should use relative URLs everywhere, so that your app works regardless of where it runs.
 //could make a new upload path variable and use below and on line 41
 const path = './public'
 
