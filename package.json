@@ -1,15 +1,27 @@
 {
-  "name": "express_serving_client_files",
+  "name": "Kenziegram3",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "multer": "^1.4.1",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/KashF/38-kenziegram.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4",
-    "pug": "^2.0.3"
-  }
+  "bugs": {
+    "url": "https://gitlab.com/KashF/38-kenziegram/issues"
+  },
+  "homepage": "https://gitlab.com/KashF/38-kenziegram#readme"
 }

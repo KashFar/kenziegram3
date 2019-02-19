@@ -8,7 +8,8 @@ html
         input( type= 'submit')
 
     each val in images
-        img(src = `/uploads/` + val)
+        img( src = `/uploads/` + val)
+    script( src= "client.js")
 
 //-  whenever you have items tabbed over one more, it'll put them inside of the body
 
