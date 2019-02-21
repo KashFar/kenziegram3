@@ -29,15 +29,16 @@ function myCallback() {
         body: JSON.stringify({ 'after': timestamp })
     }).then(res => res.json())
         .then(res => {
-            timestamp = res.timestamp
-            for (let image of res.images) {
+            timestamp = res.maxTimestamp
+            for (let image of res.imagesArray) {
                 let curImage = document.createElement('img')
                 curImage.src = '/uploads/' + image
-                document.body.prepend(curImage)
+                document.body.append(curImage)
             }
         })
         .catch(err => {
             console.log('Found Error')
+            console.log(err)
             errCount++
         })
 }

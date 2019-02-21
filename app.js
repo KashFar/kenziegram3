@@ -33,16 +33,26 @@ const fs = require('fs'); // need this
 app.post('/latest', (req, res) => {
   console.log('Request Received')
   console.log(req.body)
-  const uploadPath = './public/uploads'
+  const uploadPath = './public/uploads/'
+  //fs readdir gives an array of strings for all the parameters 
+  // should also check for error. not on rubric though. don't worry
+  // if not sending an err object and theres error, window will timeout for users
   fs.readdir(uploadPath, function (err, items) {
+    if(err) return res.status(500).send()
+
     let imagesArray = []
-    let timestamp = fs.statSync(imagePath).mtimeMs;
+    let maxTimestamp = 0
+    
     for (let i = 0; i < items.length; i++) {
-      if (timestamp > after) {
+      let timestamp = fs.statSync(uploadPath+items[i]).mtimeMs;
+      if (timestamp > req.body.after) {
         imagesArray.push(items[i])
       }
+      if (timestamp > maxTimestamp){
+        maxTimestamp = timestamp
+      }
     }
-    res.send(imagesArray)
+    res.send({imagesArray, maxTimestamp})     // have to send a js object.
   })
 })
 
